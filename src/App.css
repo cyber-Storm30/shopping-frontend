@@ -1,4 +1,29 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: overlay;
+  font-family: "Poppins", sans-serif;
+  font-size: calc(0.63vh+0.63vw);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(78, 78, 78, 0.424);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
 }
