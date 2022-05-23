@@ -1,13 +1,14 @@
-import { convertLength } from "@mui/material/styles/cssUtils";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useStyles } from "./Styles";
 import CurrencyFormat from "react-currency-format";
 import { Alert } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
+import { useNavigate } from "react-router-dom";
 
 const OrderSummary = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
   const [state, setState] = useState({
     open: false,
     vertical: "top",
@@ -30,7 +31,7 @@ const OrderSummary = () => {
   const gst = (total * 0.02).toFixed(2);
 
   const handleCheckOut = () => {
-    alert("Checkout screen");
+    navigate("/checkout");
   };
 
   return (
