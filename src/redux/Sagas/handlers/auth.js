@@ -18,8 +18,10 @@ export function* handleLogin(action) {
 }
 
 export function* handleSignup(action) {
+  console.log("Action", action);
   try {
     const response = yield call(requestSignUp, action.payload);
+    console.log("Response", response);
     yield put(signupSuccess(response.data));
   } catch (err) {
     console.log(err);

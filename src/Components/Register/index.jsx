@@ -79,18 +79,19 @@ const Register = () => {
       email: values.email,
       password: values.password,
     });
-    // try {
-    //   const res = await axiosClient.post("/auth/register", {
-    //     username: values.username,
-    //     email: values.email,
-    //     password: values.password,
-    //   });
-    //   console.log(res);
-    //   setSignInSuccess(true);
-    // } catch (err) {
-    //   setSignInError(true);
-    //   console.log(err);
-    // }
+    // dispatch(signupStart(values));
+    try {
+      const res = await axiosClient.post("/auth/register", {
+        username: values.username,
+        email: values.email,
+        password: values.password,
+      });
+      console.log(res);
+      setSignInSuccess(true);
+    } catch (err) {
+      setSignInError(true);
+      console.log(err);
+    }
   };
 
   return (
