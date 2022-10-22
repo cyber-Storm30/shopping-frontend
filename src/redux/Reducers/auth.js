@@ -14,6 +14,7 @@ const initialstate = {
   loginError: false,
   registerError: false,
   token: null,
+  error: false,
 };
 
 export const authReducer = (state = initialstate, action) => {
