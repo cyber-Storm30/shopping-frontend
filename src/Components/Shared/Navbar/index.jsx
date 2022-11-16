@@ -45,30 +45,31 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
   return (
     <div className={classes.navbar}>
       <div className={classes.navbarLeft}>
         <h1 className={classes.title} onClick={handleGoback}>
-          SHOPPING
+          SMART FARMING
         </h1>
 
-        {pathname !== "/login" && pathname !== "/register" ? (
+        {pathname !== "/" && pathname !== "/register" ? (
           <div className={classes.categories}>
             <p className={classes.categoriesText} onClick={handleClick}>
-              Shop
+              Crop Shop
             </p>
           </div>
         ) : null}
       </div>
-      {pathname !== "/login" && pathname !== "/register" ? (
+      {pathname !== "/" && pathname !== "/register" ? (
         <div className={classes.navbarRight}>
           <div className={classes.search}>
             <SearchIcon className={classes.searchIcon} />
             <input
               className={classes.input}
               type="text"
-              placeholder="Search for products,brands and more"
+              placeholder="Search for crops"
             />
           </div>
           <StyledTooltip
@@ -78,6 +79,14 @@ const Navbar = () => {
               <>
                 <div className={classes.profileToolTip}>
                   <button className={classes.tooltipButton}>Pofile</button>
+                  <button
+                    onClick={() => {
+                      navigate("/orders");
+                    }}
+                    className={classes.tooltipButton}
+                  >
+                    Orders
+                  </button>
                   {user ? (
                     <button
                       onClick={handleLogout}
@@ -89,7 +98,7 @@ const Navbar = () => {
                     <button
                       className={classes.tooltipButton}
                       onClick={() => {
-                        navigate("/login");
+                        navigate("/");
                       }}
                     >
                       Login
@@ -103,9 +112,9 @@ const Navbar = () => {
               <PersonIcon className={classes.searchIcon} />
             </IconButton>
           </StyledTooltip>
-          <IconButton>
+          {/* <IconButton>
             <FavoriteBorderIcon className={classes.searchIcon} />
-          </IconButton>
+          </IconButton> */}
           <IconButton
             onClick={() => {
               navigate("/cart");

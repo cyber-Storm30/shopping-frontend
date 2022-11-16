@@ -183,7 +183,7 @@ const Register = () => {
               <div
                 className={classes.signButton}
                 onClick={() => {
-                  navigate("/login");
+                  navigate("/");
                 }}
               >
                 LogIn
@@ -202,7 +202,7 @@ const Register = () => {
           <button
             className={classes.redirect}
             onClick={() => {
-              navigate("/login");
+              navigate("/");
             }}
           >
             Log In

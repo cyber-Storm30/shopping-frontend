@@ -30,10 +30,14 @@ const CartPage = () => {
           ))}
         </div>
         {cartItems?.length > 0 ? (
-          <OrderSummary />
+          <OrderSummary
+            onPress={() => {
+              navigate("/checkout");
+            }}
+          />
         ) : (
           <div className={classes.emptyCart}>
-            <h3>Opps!!! You don't have anything in your cart. Go shopping.</h3>
+            <h3>Opps!!! You don't have anything in your cart.</h3>
             <button
               className={classes.button}
               onClick={() => {

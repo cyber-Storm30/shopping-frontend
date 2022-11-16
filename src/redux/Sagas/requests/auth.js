@@ -9,7 +9,7 @@ export const requestLogin = ({ email, password }) => {
 };
 
 export const requestSignUp = ({ email, password, firstname, lastname }) => {
-  const response = axiosClient.post("auth/register", {
+  const response = axiosClient.post("/auth/register", {
     email,
     password,
     firstname,

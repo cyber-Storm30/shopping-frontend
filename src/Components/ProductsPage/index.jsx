@@ -7,7 +7,7 @@ const Products = () => {
   const classes = useStyles();
   return (
     <div className={classes.products}>
-      <Filters />
+      {/* <Filters /> */}
       <Page1 />
     </div>
   );

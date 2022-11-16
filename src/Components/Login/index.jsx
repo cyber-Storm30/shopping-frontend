@@ -43,7 +43,7 @@ const Login = () => {
   }, [values.email]);
 
   if (useAuth() === true) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
 
   const onSubmit = async (e) => {

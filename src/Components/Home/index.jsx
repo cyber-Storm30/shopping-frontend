@@ -14,8 +14,8 @@ const Home = () => {
   const images = [image1, image2, image3, image4, image5];
   return (
     <div className={classes.home}>
-      <MainFeed />
-      <Showcase title="deals of the day" images={images} />
+      {/* <MainFeed /> */}
+      {/* <Showcase title="deals of the day" images={images} /> */}
     </div>
   );
 };

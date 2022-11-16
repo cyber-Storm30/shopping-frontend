@@ -58,6 +58,7 @@ const SingleProduct = () => {
     if (product?.stock > 0)
       dispatch(addToCart(product, product._id, size, quantity));
     // console.log(product);
+    dispatch(addToCart(product, product._id, size, quantity));
   };
 
   const handleClick = (newState) => () => {
@@ -130,7 +131,7 @@ const SingleProduct = () => {
                     <AddIcon className={classes.icon} />
                   </IconButton>
                 </div>
-                <Select
+                {/* <Select
                   className={classes.select}
                   value={size}
                   onChange={handleChange}
@@ -141,7 +142,7 @@ const SingleProduct = () => {
                   <MenuItem value="M">M</MenuItem>
                   <MenuItem value="L">L</MenuItem>
                   <MenuItem value="XL">XL</MenuItem>
-                </Select>
+                </Select> */}
               </div>
               <button
                 className={classes.button}

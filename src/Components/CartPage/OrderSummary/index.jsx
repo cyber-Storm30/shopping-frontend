@@ -6,7 +6,7 @@ import { Alert } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import { useNavigate } from "react-router-dom";
 
-const OrderSummary = () => {
+const OrderSummary = ({ text, onPress }) => {
   const classes = useStyles();
   const navigate = useNavigate();
   const [state, setState] = useState({
@@ -31,7 +31,7 @@ const OrderSummary = () => {
   const gst = (total * 0.02).toFixed(2);
 
   const handleCheckOut = () => {
-    navigate("/checkout");
+    onPress();
   };
 
   return (
@@ -78,18 +78,8 @@ const OrderSummary = () => {
             />
           </h3>
         </div>
-        <button
-          className={classes.button}
-          onClick={
-            user
-              ? handleCheckOut
-              : handleClick({
-                  vertical: "top",
-                  horizontal: "center",
-                })
-          }
-        >
-          Checkout
+        <button className={classes.button} onClick={handleCheckOut}>
+          {text ? text : "Checkout"}
         </button>
       </div>
     </>

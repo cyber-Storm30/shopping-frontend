@@ -1,17 +1,42 @@
 import React from "react";
 import { useStyles } from "./Styles.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../CartItem";
 import OrderSummary from "../../CartPage/OrderSummary";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { clearCart } from "../../../redux/Actions/cart.js";
+import { axiosClient } from "../../../Services/apiClient.js";
 
-const ConfirmOrder = ({ data, setData, step, setStep }) => {
+const ConfirmOrder = ({ data, setData, step, setStep, setOpen, address }) => {
   const classes = useStyles();
   const user = useSelector((s) => s.auth.user);
   const cart = useSelector((s) => s.cart.cart);
 
   const handleSetStep = () => {
     setStep((prev) => prev - 1);
+  };
+
+  const totalAmt = cart.reduce((accumulator, object) => {
+    return accumulator + object.price;
+  }, 0);
+  const gst = (totalAmt * 0.02).toFixed(2);
+  const finalAmt = parseFloat(totalAmt) + parseFloat(65) + parseFloat(gst);
+
+  const order = {};
+
+  const handleSubmit = async () => {
+    setOpen(true);
+    try {
+      const res = await axiosClient.post("/order/createOrder", {
+        userId: user._id,
+        products: cart,
+        amount: finalAmt,
+        address: data,
+      });
+      console.log(res);
+    } catch (err) {
+      console.log(err.message);
+    }
   };
   return (
     <div className={classes.confirmOrderWrapper}>
@@ -42,7 +67,7 @@ const ConfirmOrder = ({ data, setData, step, setStep }) => {
           </div>
         </div>
       </div>
-      <OrderSummary />
+      <OrderSummary text="Place order" onPress={handleSubmit} />
     </div>
   );
 };

@@ -10,7 +10,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
 
-const CartItem = (props) => {
+const OrderItem = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   let quantity = props.quantity;
@@ -78,16 +78,16 @@ const CartItem = (props) => {
               />
             </p>
           </h4>
-          <button
+          {/* <button
             className={classes.removeButton}
             onClick={handleRemoveFromCart}
           >
             Remove from cart
-          </button>
+          </button> */}
         </div>
       </div>
       <div className={classes.total}>
-        <div className={classes.counter}>
+        {/* <div className={classes.counter}>
           {quantity === 1 ? (
             <IconButton onClick={hanldeDeleteFromCart}>
               <DeleteIcon className={classes.icon} sx={{ color: "red" }} />
@@ -101,8 +101,8 @@ const CartItem = (props) => {
           <IconButton onClick={handleAddtoCart}>
             <AddIcon className={classes.icon} />
           </IconButton>
-        </div>
-        <h3 className={classes.amount}>
+        </div> */}
+        {/* <h3 className={classes.amount}>
           Total:
           <p className={classes.subamount}>
             <CurrencyFormat
@@ -112,10 +112,10 @@ const CartItem = (props) => {
               prefix={"₹"}
             />
           </p>
-        </h3>
+        </h3> */}
       </div>
     </div>
   );
 };
 
-export default CartItem;
+export default OrderItem;
