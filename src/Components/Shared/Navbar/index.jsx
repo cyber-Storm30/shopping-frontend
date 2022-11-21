@@ -78,7 +78,14 @@ const Navbar = () => {
             title={
               <>
                 <div className={classes.profileToolTip}>
-                  <button className={classes.tooltipButton}>Pofile</button>
+                  <button
+                    className={classes.tooltipButton}
+                    onClick={() => {
+                      navigate("/profile");
+                    }}
+                  >
+                    Pofile
+                  </button>
                   <button
                     onClick={() => {
                       navigate("/orders");
