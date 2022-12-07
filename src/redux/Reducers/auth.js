@@ -6,6 +6,7 @@ import {
   SIGNUP_FAILURE,
   SIGNUP_START,
   SIGNUP_SUCCESS,
+  UPDATE_USER,
 } from "../Actions/auth";
 
 const initialstate = {
@@ -72,6 +73,16 @@ export const authReducer = (state = initialstate, action) => {
     case SIGNUP_FAILURE: {
       return {
         user: null,
+        isFetching: false,
+        loginError: true,
+        registerError: true,
+        token: null,
+      };
+    }
+    case UPDATE_USER: {
+      console.log("In reducer", action.payload);
+      return {
+        user: action.payload,
         isFetching: false,
         loginError: true,
         registerError: true,

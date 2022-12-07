@@ -5,6 +5,7 @@ export const LOGOUT = "logout";
 export const SIGNUP_START = "signupStart";
 export const SIGNUP_SUCCESS = "signupSuccess";
 export const SIGNUP_FAILURE = "signupFailure";
+export const UPDATE_USER = "updateUser";
 
 export const loginStart = (data) => {
   return {
@@ -49,5 +50,12 @@ export const signupSuccess = (data) => {
 export const signupFailure = () => {
   return {
     type: SIGNUP_FAILURE,
+  };
+};
+
+export const updateUser = (data) => {
+  return {
+    type: UPDATE_USER,
+    payload: data,
   };
 };

@@ -14,10 +14,7 @@ const OrderPage = () => {
 
   const getOrders = async () => {
     try {
-      const res = await axiosClient.get(
-        `http://localhost:5000/api/order/find/${user._id}`
-      );
-      //   console.log(res);
+      const res = await axiosClient.get(`/order/find/${user._id}`);
       setOrdetItems(res.data);
     } catch (err) {
       console.log(err);

@@ -39,6 +39,7 @@ const Navbar = () => {
   const handleClick = () => {
     navigate("/products");
   };
+
   const handleGoback = () => {
     navigate("/");
   };
@@ -58,6 +59,30 @@ const Navbar = () => {
           <div className={classes.categories}>
             <p className={classes.categoriesText} onClick={handleClick}>
               Crop Shop
+            </p>
+          </div>
+        ) : null}
+        {pathname !== "/" && pathname !== "/register" ? (
+          <div className={classes.categories}>
+            <p
+              className={classes.categoriesText}
+              onClick={() => {
+                navigate("/cropdoctor");
+              }}
+            >
+              Agro Expert
+            </p>
+          </div>
+        ) : null}
+        {pathname !== "/" && pathname !== "/register" ? (
+          <div className={classes.categories}>
+            <p
+              className={classes.categoriesText}
+              onClick={() => {
+                navigate("/cropanalysis");
+              }}
+            >
+              Crop Analysis
             </p>
           </div>
         ) : null}
